@@ -40,11 +40,11 @@ public class ListOfProductsPage extends BasePage {
 
     public ListOfProductsPage setValuesInRangeInput(String nameOfInput, String minimumValue, String maximumValue) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        String commonLocatorForMinimumValueRangeInput = "//span[text()='%s']/following::div[@class='schema-filter__group']/child::div[1]/input";
+        String commonLocatorForMinimumValueRangeInput = "//span[text()='%s']/following::div[@class='schema-filter__group']/child::div/input[contains(@data-bind,'value: facet.value.from')]";
         js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(String.format(commonLocatorForMinimumValueRangeInput, nameOfInput))));
         driver.findElement(By.xpath(String.format(commonLocatorForMinimumValueRangeInput, nameOfInput))).click();
         driver.findElement(By.xpath(String.format(commonLocatorForMinimumValueRangeInput, nameOfInput))).sendKeys(minimumValue);
-        String commonLocatorForMaximumValueRangeInput = "//span[text()='%s']/following::div[@class='schema-filter__group']/child::div[2]/input";
+        String commonLocatorForMaximumValueRangeInput = "//span[text()='%s']/following::div[@class='schema-filter__group']/child::div/input[contains(@data-bind,'value: facet.value.to')]";
         driver.findElement(By.xpath(String.format(commonLocatorForMaximumValueRangeInput, nameOfInput))).click();
         driver.findElement(By.xpath(String.format(commonLocatorForMaximumValueRangeInput, nameOfInput))).sendKeys(maximumValue);
         return this;
@@ -52,11 +52,11 @@ public class ListOfProductsPage extends BasePage {
 
     public ListOfProductsPage setValuesInDropdown(String nameOfDropdown, String minimumValue, String maximumValue) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        String commonLocatorForMinimumValueDropdown = "//span[text()='%s']/following::div[@class='schema-filter__group']/child::div[1]/select";
+        String commonLocatorForMinimumValueDropdown = "//span[text()='%s']/following::div[@class='schema-filter__group']/child::div/select[contains(@data-bind,'value: facet.value.from')]";
         js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath(String.format(commonLocatorForMinimumValueDropdown, nameOfDropdown))));
         Select dropdownMinimumValue = new Select(driver.findElement(By.xpath(String.format(commonLocatorForMinimumValueDropdown, nameOfDropdown))));
         dropdownMinimumValue.selectByVisibleText(minimumValue);
-        String commonLocatorForMaximumValueDropdown = "//span[text()='%s']/following::div[@class='schema-filter__group']/child::div[2]/select";
+        String commonLocatorForMaximumValueDropdown = "//span[text()='%s']/following::div[@class='schema-filter__group']/child::div/select[contains(@data-bind,'value: facet.value.to')]";
         Select dropdownMaximumValue = new Select(driver.findElement(By.xpath(String.format(commonLocatorForMaximumValueDropdown, nameOfDropdown))));
         dropdownMaximumValue.selectByVisibleText(maximumValue);
         return this;
