@@ -1,2 +1,2 @@
 ***Maven code for test launch***
-`mvn test -DsuiteXmlFile="Suite.xml"`
+`mvn test -DsuiteXmlFile="suite.xml"`
