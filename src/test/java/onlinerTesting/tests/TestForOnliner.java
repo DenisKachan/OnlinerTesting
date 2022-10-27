@@ -1,26 +1,30 @@
 package onlinerTesting.tests;
 
-import org.testng.annotations.Optional;
+import onlinerTesting.pages.CataloguePage;
+import onlinerTesting.pages.ListOfProductsPage;
+import onlinerTesting.pages.MainPage;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class TestForOnliner extends BaseTest {
 
     @Parameters({"nameOfProducer", "valueOfResolution",
             "minimumPrice", "maximumPrice", "minimumSize", "maximumSize"})
     @Test
-    public void onlinerTest(@Optional("Samsung") String nameOfProducer,
-                            @Optional("1920x1080 (Full HD)") String valueOfResolution,
-                            @Optional("0") String minimumPrice,
-                            @Optional("1500,00") String maximumPrice,
-                            @Optional("40\"") String minimumSize,
-                            @Optional("50\"") String maximumSize) {
+    public void onlinerTest(String nameOfProducer, String valueOfResolution,
+                            String minimumPrice, String maximumPrice,
+                            String minimumSize, String maximumSize) {
+        SoftAssert softAssert = new SoftAssert();
+        MainPage mainPage = new MainPage(driver);
         mainPage.isPageOpened()
                 .navigateSection("Каталог");
+        CataloguePage cataloguePage = new CataloguePage(driver);
         cataloguePage.isPageOpened()
                 .navigateCatalogueSection("Электроника")
                 .navigateCatalogueSubSection("Телевидение")
-                .clickTVImage();
+                .navigateSubSectionEntity("Телевизоры");
+        ListOfProductsPage listOfProductsPage = new ListOfProductsPage(driver);
         listOfProductsPage.isPageOpened()
                 .chooseOptionOfCheckBox("Производитель", nameOfProducer)
                 .chooseOptionOfCheckBox("Разрешение", valueOfResolution)
@@ -29,7 +33,7 @@ public class TestForOnliner extends BaseTest {
                 .checkingTheModelOfTV(nameOfProducer)
                 .checkingTheResolutionOfTV(valueOfResolution)
                 .checkingThePriceOfTV(minimumPrice, maximumPrice)
-                .checkingSizeOfTV(minimumSize, maximumSize)
-                .assertAllData();
+                .checkingSizeOfTV(minimumSize, maximumSize);
+        softAssert.assertAll();
     }
 }

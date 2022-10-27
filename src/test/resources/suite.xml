@@ -4,9 +4,9 @@
     <parameter name="nameOfProducer" value="Samsung"/>
     <parameter name="valueOfResolution" value="1920x1080 (Full HD)"/>
     <parameter name="minimumPrice" value="0"/>
-    <parameter name="maximumPrice" value="1500,00"/>
-    <parameter name="minimumSize" value="40&quot;"/>
-    <parameter name="maximumSize" value="50&quot;"/>
+    <parameter name="maximumPrice" value="1500.00"/>
+    <parameter name="minimumSize" value="40"/>
+    <parameter name="maximumSize" value="50"/>
     <test name="all tests">
         <classes>
             <class name="onlinerTesting.tests.TestForOnliner"/>
