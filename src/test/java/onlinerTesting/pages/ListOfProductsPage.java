@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
+import java.nio.charset.StandardCharsets;
+
 public class ListOfProductsPage extends BasePage {
 
     private final By enabledProducts = By.xpath("//div[@class='schema-product__group']");
@@ -92,9 +94,9 @@ public class ListOfProductsPage extends BasePage {
         while (attempts < 2) {
             try {
                 for (WebElement webElement : driver.findElements(priceOfProduct)) {
-                    String result = webElement.getAttribute("innerText");
+                    String result = webElement.getText();
                     String[] arrayResult = result.split(" ");
-                    String priceResult = arrayResult[1].substring(0,7).replaceAll("[,]",".");
+                    String priceResult = arrayResult[1].replaceAll("[,]",".");
                     double parseResult = Double.parseDouble(priceResult);
                     double parseMinPrice = Double.parseDouble(minPriceOfTV);
                     double parseMaxPrice = Double.parseDouble(maxPriceOfTV);
@@ -128,10 +130,9 @@ public class ListOfProductsPage extends BasePage {
             try {
                 for (WebElement webElement : driver.findElements(descriptionOfProduct)) {
                     String result = webElement.getAttribute("innerText");
-                    String [] arrayResult = result.split(" ");
+                    String [] arrayResult = result.split("\"");
                     String sizeResult = arrayResult[0];
-                    String onlyNumbersResult = sizeResult.replaceAll("[^0-9]", "");
-                    int parseResult = Integer.parseInt(onlyNumbersResult);
+                    int parseResult = Integer.parseInt(sizeResult);
                     int parseMinSize = Integer.parseInt(minSizeOfTV);
                     int parseMaxSize = Integer.parseInt(maxSizeOfTV);
                     softAssert.assertTrue(parseResult >= parseMinSize && parseResult <= parseMaxSize, "The sizes are different ");
