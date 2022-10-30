@@ -1,4 +1,4 @@
-package onlinerTesting.utils;
+package onliner.utils;
 
 import java.io.IOException;
 import java.util.Properties;

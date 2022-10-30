@@ -1,7 +1,7 @@
-package onlinerTesting.browserConfig;
+package onliner.browserConfig;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import onlinerTesting.utils.PropertyReader;
+import onliner.utils.PropertyReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

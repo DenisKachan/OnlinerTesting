@@ -1,13 +1,15 @@
-package onlinerTesting.pages;
+package onliner.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPage extends BasePage {
 
     private final By loginButton = By.xpath("//input[@class='fast-search__input']");
+    private final String commonLocatorForMainPageSection = "//a[@class='b-main-navigation__link']/descendant::span[text()='%s']";
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -21,8 +23,8 @@ public class MainPage extends BasePage {
     }
 
     public MainPage navigateSection(String nameOfTheSection) {
-        String commonLocatorForMainPageSection = "//a[@class='b-main-navigation__link']/descendant::span[text()='%s']";
-        driver.findElement(By.xpath(String.format(commonLocatorForMainPageSection, nameOfTheSection))).click();
+        WebElement pageSection = driver.findElement(By.xpath(String.format(commonLocatorForMainPageSection, nameOfTheSection)));
+        pageSection.click();
         return this;
     }
 }

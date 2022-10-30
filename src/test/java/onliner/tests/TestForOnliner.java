@@ -1,8 +1,8 @@
-package onlinerTesting.tests;
+package onliner.tests;
 
-import onlinerTesting.pages.CataloguePage;
-import onlinerTesting.pages.ListOfProductsPage;
-import onlinerTesting.pages.MainPage;
+import onliner.pages.CataloguePage;
+import onliner.pages.ListOfProductsPage;
+import onliner.pages.MainPage;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;

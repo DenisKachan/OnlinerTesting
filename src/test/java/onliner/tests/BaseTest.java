@@ -1,6 +1,6 @@
-package onlinerTesting.tests;
+package onliner.tests;
 
-import onlinerTesting.browserConfig.BrowserConfiguration;
+import onliner.browserConfig.BrowserConfiguration;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

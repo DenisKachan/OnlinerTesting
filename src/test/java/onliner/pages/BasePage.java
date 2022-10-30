@@ -1,6 +1,6 @@
-package onlinerTesting.pages;
+package onliner.pages;
 
-import onlinerTesting.utils.PropertyReader;
+import onliner.utils.PropertyReader;
 import org.openqa.selenium.WebDriver;
 
 public abstract class BasePage {
