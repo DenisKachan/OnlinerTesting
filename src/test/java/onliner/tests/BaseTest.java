@@ -15,6 +15,7 @@ public abstract class BaseTest {
         browserConfiguration = BrowserConfiguration.getInstance();
         driver = browserConfiguration.chooseBrowser();
         browserConfiguration.browserSettings(driver);
+        browserConfiguration.openStartPage(driver);
     }
 
     @AfterMethod

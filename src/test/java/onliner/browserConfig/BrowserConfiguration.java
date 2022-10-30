@@ -41,6 +41,9 @@ public class BrowserConfiguration {
     public void browserSettings(WebDriver driver) {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Long.parseLong(configReader.getProperty("defaultWait")), TimeUnit.SECONDS);
+    }
+
+    public void openStartPage(WebDriver driver){
         driver.get(configReader.getProperty("baseUrl"));
     }
 }

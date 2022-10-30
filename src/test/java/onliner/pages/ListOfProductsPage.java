@@ -14,7 +14,7 @@ import java.util.List;
 public class ListOfProductsPage extends BasePage {
 
     private final By titleOfProduct = By.xpath("//div[@class='schema-product__title']/child::a[contains(text(),'')]");
-    private final By priceOfProduct = By.xpath("//div[@class='schema-product__price-group']/following::a[contains(text(),'от')]");
+    private final By priceOfProduct = By.xpath("//div[@class='schema-product__price']/child::a");
     private final By descriptionOfProduct = By.xpath("//div[@class='schema-product__description']/child::span[contains(text(),'частота матрицы')]");
     private final String commonLocatorForCheckboxList = "//span[text()='%s']/following::ul[@class='schema-filter__list']";
     private final String commonLocatorForCheckboxOption = "/descendant::span[contains(text(),'%s')]";
