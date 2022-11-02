@@ -76,7 +76,6 @@ public class ListOfProductsPage extends BasePage {
         List<WebElement> titles = driver.findElements(titleOfProduct);
                 for (int i = 0; i<titles.size();i++) {
                     String result = titles.get(i).getText();
-                    System.out.println(result);
                     softAssert.assertTrue(result.contains(modelOfTv), "The models are different");
                 }
         return this;
@@ -91,7 +90,6 @@ public class ListOfProductsPage extends BasePage {
                     double parseResult = Double.parseDouble(priceResult);
                     double parseMinPrice = Double.parseDouble(minPriceOfTV);
                     double parseMaxPrice = Double.parseDouble(maxPriceOfTV);
-                    System.out.println(result);
                     softAssert.assertTrue(parseResult >= parseMinPrice && parseResult <= parseMaxPrice, "The prices are different");
                 }
         return this;
@@ -101,7 +99,6 @@ public class ListOfProductsPage extends BasePage {
         List<WebElement> resolutions = driver.findElements(descriptionOfProduct);
                 for (int i = 0; i<resolutions.size();i++) {
                     String result = resolutions.get(i).getText();
-                    System.out.println(result);
                     softAssert.assertTrue(result.contains(resolutionOfTv), "The resolutions are different ");
                 }
         return this;
@@ -116,7 +113,6 @@ public class ListOfProductsPage extends BasePage {
                     int parseResult = Integer.parseInt(sizeResult);
                     int parseMinSize = Integer.parseInt(minSizeOfTV);
                     int parseMaxSize = Integer.parseInt(maxSizeOfTV);
-                    System.out.println(result);
                     softAssert.assertTrue(parseResult >= parseMinSize && parseResult <= parseMaxSize, "The sizes are different ");
                 }
         return this;
